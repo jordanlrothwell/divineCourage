@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const seedRoutes = require("./seedRoutes");
+const seedRoutes = require("./seed");
 
 router.use("/seed", seedRoutes);
 
