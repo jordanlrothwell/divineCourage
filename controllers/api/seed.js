@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Hero, Item } = require("../../models");
 
-router.post("/seed-heroes", async (req, res) => {
+router.post("/heroes", async (req, res) => {
   try {
     const heroData = await Hero.bulkCreate({
       ...req.body,
@@ -12,7 +12,7 @@ router.post("/seed-heroes", async (req, res) => {
   }
 });
 
-router.post("/seed-items", async (req, res) => {
+router.post("/items", async (req, res) => {
   try {
     const itemData = await Item.bulkCreate({
       ...req.body,
