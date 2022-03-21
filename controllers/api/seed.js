@@ -15,7 +15,7 @@ router.post("/heroes", async (req, res) => {
 
 router.post("/items", async (req, res) => {
   try {
-    const itemData = await Item.bulkCreate(req.body, {
+    const itemData = await Item.bulkCreate({... req.body}, {
       individualHooks: true,
       returning: true,
     });
