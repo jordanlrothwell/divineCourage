@@ -3,8 +3,9 @@ const { Hero, Item } = require("../../models");
 
 router.post("/heroes", async (req, res) => {
   try {
-    const heroData = await Hero.bulkCreate({
-      ...req.body,
+    const heroData = await Hero.bulkCreate(req.body, {
+      individualHooks: true,
+      returning: true,
     });
     res.status(200).json(heroData);
   } catch (error) {
@@ -14,8 +15,9 @@ router.post("/heroes", async (req, res) => {
 
 router.post("/items", async (req, res) => {
   try {
-    const itemData = await Item.bulkCreate({
-      ...req.body,
+    const itemData = await Item.bulkCreate(req.body, {
+      individualHooks: true,
+      returning: true,
     });
     res.status(200).json(itemData);
   } catch (error) {
