@@ -14,8 +14,11 @@ router.get("/", async (req, res) => {
 
     const inventory = [];
 
-    for (var i = 0; i < 6; i++) {
-      inventory.push(randomEntry(itemsArray));
+    for (var i = 0; inventory.length < 7; i++) {
+      let randomItem = randomEntry(itemsArray);
+      if (!inventory.includes(randomItem)) {
+        inventory.push(randomItem);
+      }
     }
 
     res.render("homepage", { ...randomHero, inventory });
