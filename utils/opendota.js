@@ -3,6 +3,7 @@ const { Hero } = require("../models");
 const heroesDataARR = require("../data/heroes.json");
 const itemIDs = require("../data/item_ids.json");
 const fetch = require("node-fetch");
+const { findAll } = require("../models/Hero");
 
 const getPopularItems = async function (index) {
   const itemPopularityJSON = await fetch(
@@ -18,9 +19,7 @@ const getPopularItems = async function (index) {
 
   const popularItemsObj = { startGame, earlyGame, midGame, lateGame };
 
-  for (const item in startGame) {
-    console.log(`${itemIDs[item]} purchased ${startGame[item]} times`);
-  }
+  return popularItemsObj;
 };
 
 const findHeroID = function (name) {
@@ -32,9 +31,5 @@ const findHeroID = function (name) {
 
   return heroOBJ.id_API;
 };
-
-console.log(getPopularItems(findHeroID("Anti-Mage")));
-
-// getPopularItems(1);
 
 module.exports = getPopularItems;
