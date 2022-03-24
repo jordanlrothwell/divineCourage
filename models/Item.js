@@ -31,11 +31,11 @@ Item.init(
         const nameWithHyphen = nameWithSpace.replace(/ /g, "-");
         const nameWithUnderscore = nameWithSpace.replace(/ /g, "_");
         const nameForURL = nameWithHyphen.replace(/'/g, "");
-        const nameForTag = nameWithUnderscore.replace(/'/g, "");
+        let nameForTag = nameWithUnderscore.replace(/'/g, "");
 
         item.item_image = `https://www.dotafire.com/images/item/${nameForURL}.png`;
         if (!item.tag) {
-          item.tag = `${nameForTag.toLowerCase()}`
+          item.tag = `${nameForTag.toLowerCase()}`;
         }
       },
     },

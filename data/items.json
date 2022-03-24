@@ -1673,7 +1673,8 @@
         "name": "Wind Waker"
     },
     {
-        "name": "Gleipnir"
+        "name": "Gleipnir",
+        "tag": "gungir"
     },
     {
         "name": "Witch Blade"
@@ -1701,5 +1702,12 @@
     },
     {
         "name": "Eternal Shroud"
+    },
+    {
+        "name": "Ultimate Orb"
+    },
+    {
+        "name": "Aghanim's Blessing",
+        "tag": "ultimate_scepter_2"
     }
 ]

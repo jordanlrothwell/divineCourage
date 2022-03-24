@@ -1,4 +1,5 @@
 const itemIDs = require("../data/item_ids.json");
+const items = require("../data/items.json");
 const { Item } = require("../models");
 
 const apiIDtoPK = async function (apiID) {
@@ -8,7 +9,7 @@ const apiIDtoPK = async function (apiID) {
       tag: tag,
     },
   });
-  return matchingItem;
+  return matchingItem.id;
 };
 
 module.exports = apiIDtoPK;
