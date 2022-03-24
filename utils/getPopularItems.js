@@ -1,9 +1,4 @@
-const router = require("express").Router();
-const { Hero } = require("../models");
-const heroesDataARR = require("../data/heroes.json");
-const itemIDs = require("../data/item_ids.json");
 const fetch = require("node-fetch");
-const { findAll } = require("../models/Hero");
 
 const getPopularItems = async function (index) {
   const itemPopularityJSON = await fetch(
@@ -20,16 +15,6 @@ const getPopularItems = async function (index) {
   const popularItemsObj = { startGame, earlyGame, midGame, lateGame };
 
   return popularItemsObj;
-};
-
-const findHeroID = function (name) {
-  const heroOBJ = heroesDataARR.find((heroOBJ) => {
-    if (heroOBJ.localized_name == name) {
-      return true;
-    }
-  });
-
-  return heroOBJ.id_API;
 };
 
 module.exports = getPopularItems;

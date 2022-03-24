@@ -30,24 +30,12 @@
     {
         "tag": "power_treads",
         "name": "Power Treads",
-        "description": "<h1>Active: Switch Attribute</h1>Switches between +10 Strength, +10 Agility, or +10 Intelligence.<br />\r\nMovement speed bonuses from multiple pairs of boots do not stack.",
-        "notes": "Power Treads can be built using a Belt of Strength, Band of Elvenskin, or a Robe of the Magi.",
-        "lore": "A pair of tough-skinned boots that change to meet the demands of the wearer.",
-        "cost": "1450",
-        "attrib": "+ <span class=\"attribVal\">15%</span> <span class=\"attribValText\">Movement Speed</span><br />\n+ <span class=\"attribVal\">10</span> <span class=\"attribValText\">Selected Attribute</span><br />\n+ <span class=\"attribVal\">20</span> <span class=\"attribValText\">Attack Speed</span>",
         "category": "boots",
         "components": [
             "item_boots",
             "item_gloves",
             "item_belt_of_strength"
-        ],
-        "recipeCost": "",
-        "npc": {},
-        "bonuses": {
-            "bonus_damage": 0,
-            "bonus_movement_speed": 15,
-            "bonus_attack_speed": 20
-        }
+        ]
     },
     {
         "tag": "hand_of_midas",

@@ -15,18 +15,28 @@ Item.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    tag: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     item_image: {
       type: DataTypes.STRING,
       allowNull: true,
-    }, 
+    },
   },
   {
     hooks: {
       beforeCreate: async (item) => {
         const nameWithSpace = item.name;
         const nameWithHyphen = nameWithSpace.replace(/ /g, "-");
-        const nameWithoutApostrophe = nameWithHyphen.replace(/'/g, "")
-        item.item_image = `https://www.dotafire.com/images/item/${nameWithoutApostrophe}.png`;
+        const nameWithUnderscore = nameWithSpace.replace(/ /g, "_");
+        const nameForURL = nameWithHyphen.replace(/'/g, "");
+        const nameForTag = nameWithUnderscore.replace(/'/g, "");
+
+        item.item_image = `https://www.dotafire.com/images/item/${nameForURL}.png`;
+        if (!item.tag) {
+          item.tag = `${nameForTag.toLowerCase()}`
+        }
       },
     },
     sequelize,

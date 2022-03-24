@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const { Hero, Item } = require("../models");
 const randomEntry = require("../utils/randomEntry");
-const getPopularItems = require("../utils/opendota");
+const getPopularItems = require("../utils/getPopularItems");
+const arrayByFrequency = require("../utils/arrayByFrequency");
 
 router.get("/", async (req, res) => {
   try {
@@ -16,7 +17,10 @@ router.get("/", async (req, res) => {
 
     const popularItems = await getPopularItems(id_API);
 
-    res.status(200).json({ randomHero, popularItems });
+    const midGameByFrequency = arrayByFrequency(popularItems.midGame);
+    
+
+    res.status(200).json({ randomHero, popularItems, midGameByFrequency, itemsArray });
   } catch (error) {
     res.status(500).json(error);
   }
